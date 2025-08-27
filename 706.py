@@ -1,29 +1,29 @@
 class MyHashMap:
     def __init__(self):
-        self.M = 2003
-        self.buckets = [[] for _ in range(self.M)]
+        self.size = 2003
+        self.buckets = [[] for k in range(self.size)]
 
-    def _idx(self, key: int) -> int:
-        return key % self.M
-
+    def index(self,key:int)-> int:
+        return key%self.size
+    
     def put(self, key: int, value: int) -> None:
-        b = self.buckets[self._idx(key)]
-        for i, (k, v) in enumerate(b):
-            if k == key:
-                b[i] = (key, value)   
-                return
-        b.append((key, value))         
+        temp = self.buckets[self.index(key)]
+        for i,(x,y) in enumerate(temp):
+            if x==key:
+                temp[i] = (key,value)
+                return 
+        temp.append((key,value))
 
     def get(self, key: int) -> int:
-        b = self.buckets[self._idx(key)]
-        for k, v in b:
-            if k == key:
-                return v
+        temp = self.buckets[self.index(key)]
+        for x,y in temp:
+            if x==key:
+                return y
         return -1
 
     def remove(self, key: int) -> None:
-        b = self.buckets[self._idx(key)]
-        for i, (k, _) in enumerate(b):
-            if k == key:
-                b.pop(i)
+        temp = self.buckets[self.index(key)]
+        for i,(x,y) in enumerate(temp):
+            if x==key:
+                temp.pop(i)
                 return
