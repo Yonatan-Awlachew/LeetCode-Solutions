@@ -9,7 +9,7 @@ buf: .space 256
 result: "Result: "
 
 .text
-#main:
+main:
 	la a0,message1
 	li a7,Print
 	ecall
