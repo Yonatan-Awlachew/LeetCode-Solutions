@@ -6,7 +6,7 @@
 .data
 buffer: .space 256
 p1: .asciz "Enter any Text : "
-p2: .asciz "Length : "
+p2: .asciz "Result : "
 
 .text 
 main:
