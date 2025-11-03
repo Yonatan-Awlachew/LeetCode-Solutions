@@ -8,7 +8,6 @@ class Solution:
                 group_sum += neededTime[j]
                 group_max = max(group_max,neededTime[j])
                 j+=1
-            
-            tot_time+=group_sum-group_max
+            tot_time += group_sum-group_max
             i=j
         return tot_time
